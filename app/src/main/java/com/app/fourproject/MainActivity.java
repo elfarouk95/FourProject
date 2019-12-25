@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     ArrayAdapter<Person> adapter;
 
-    static {
+   /* static {
         names.add(new Person("a", "0", "a"));
         names.add(new Person("a1", "01", "a1"));
         names.add(new Person("a2", "02", "a2"));
@@ -25,12 +25,16 @@ public class MainActivity extends AppCompatActivity {
         names.add(new Person("a4", "04", "a4"));
         names.add(new Person("a5", "04", "a5"));
         names.add(new Person("a6", "04", "a6"));
-    }
+    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        DBHelper d = new DBHelper(this); // ----->
+        names = d.getAllPerson();  // ----->
+
 
         list = findViewById(R.id.list);
 

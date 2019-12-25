@@ -22,11 +22,16 @@ public class AddActivity extends AppCompatActivity {
 
     public void AddPerson(View view) {
 
+        DBHelper db = new DBHelper(this); // ----->
+
         String n = Name.getText().toString();
         String p = Phone.getText().toString();
         String a = address.getText().toString();
 
         Person person = new Person(n, p, a);
+
+        db.InsertPerson(person); // ----->
+
         MainActivity.names.add(person);
         finish();
     }
